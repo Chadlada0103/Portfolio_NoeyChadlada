@@ -1,0 +1,237 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 56px 20px 80px;
+	background-color: #FBEEF2;
+	color: #4A2233;
+	font-family: 'Inter', sans-serif;
+	line-height: 1.55;
+}
+.thread {
+	max-width: 900px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-areas:
+		"header"
+		"posts"
+		"composer";
+	gap: 32px;
+}
+
+.thread-header { grid-area: header; }
+.posts { grid-area: posts; }
+.composer { grid-area: composer; }
+
+/* Media Query: จอกว้างขึ้นเปลี่ยนเป็น grid 2 คอลัมน์ */
+@media only screen and (min-width: 760px) {
+	.thread {
+		grid-template-columns: 1fr 320px;
+		grid-template-areas:
+			"header  header"
+			"posts   composer";
+	}
+}
+
+#top {
+	font-family: 'Fraunces', serif;
+	font-weight: 600;
+	font-size: 2.5rem;
+	margin: 0 0 8px 0;
+	min-height: 1.2em;
+}
+
+.thread-sub {
+	margin: 0;
+	color: #8B5E70;
+	font-size: 0.95rem;
+}
+
+.posts {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.posts::before {
+	content: "";
+	position: absolute;
+	top: 14px;
+	bottom: 14px;
+	left: 19px;
+	width: 1px;
+	background-color: #E8C6D2;
+}
+
+.post {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 18px;
+	padding: 0 0 28px 0;
+	position: relative;
+}
+
+.post:last-child {
+	padding-bottom: 0;
+}
+
+.post-index {
+	width: 38px;
+	height: 38px;
+	border: 1px solid #E8C6D2;
+	border-radius: 50%;
+	background-color: #FFF8FA;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Fraunces', serif;
+	font-size: 0.85rem;
+	color: #8B5E70;
+	position: relative;
+	transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.post--topic .post-index {
+	background-color: #D6698C;
+	border: 1px solid #D6698C;
+	color: #FFF8FA;
+}
+
+.post:hover .post-index {
+	transform: translateY(-4px) scale(1.05);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.post-body {
+	flex: 1;
+	background-color: #FFF8FA;
+	border: 1px solid #E8C6D2;
+	border-radius: 10px;
+	padding: 14px 18px;
+	min-height: 24px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.post:hover .post-body {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.post--topic .post-body {
+	border: 1px solid #F3D3DE;
+	font-weight: 500;
+}
+
+.post-body:empty::before {
+	content: attr(data-empty);
+	color: #8B5E70;
+	font-style: italic;
+}
+.composer {
+	background-color: rgba(255, 248, 250, 0.85);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 14px;
+	padding: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.composer-label {
+	display: block;
+	font-size: 0.85rem;
+	color: #8B5E70;
+	margin-bottom: 8px;
+}
+
+#message {
+	width: 100%;
+	min-height: 96px;
+	padding: 12px 14px;
+	border: 1px solid #E8C6D2;
+	border-radius: 8px;
+	background-color: #FBEEF2;
+	color: #4A2233;
+	font-family: 'Inter', sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.composer-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 14px;
+}
+
+.btn {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	font-weight: 500;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary {
+	background-color: #D6698C;
+	color: #FFF8FA;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary:hover {
+	background-color: #C14C74;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary:active {
+	transform: translateY(1px) scale(0.97);
+	box-shadow: none;
+}
+
+.btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.btn-ghost {
+	background-color: transparent;
+	border: 1px solid #E8C6D2;
+	color: #8B5E70;
+}
+
+.btn-ghost:hover {
+	border-color: #8B5E70;
+	color: #4A2233;
+	transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+	transform: translateY(1px) scale(0.97);
+}
+
+@media only screen and (max-width: 480px) {
+	body {
+		padding: 40px 16px 60px;
+	}
+	.post {
+		gap: 12px;
+	}
+	.posts::before {
+		left: 15px;
+	}
+	.post-index {
+		width: 30px;
+		height: 30px;
+		font-size: 0.75rem;
+	}
+}

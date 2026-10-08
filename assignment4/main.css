@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@400;500;600;700&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'Mulish', 'Segoe UI', Tahoma, sans-serif;
+	background-color: #d64541;
+	color: #0f0e0d;
+}
+
+h1, h2, h3 {
+	margin-top: 0;
+	font-family: 'Anton', Georgia, 'Times New Roman', serif;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}
+
+h3 {
+	font-size: 1.05em;
+	margin-bottom: 8px;
+}
+
+ul, ol {
+	padding-left: 1em;
+	line-height: 1.7;
+}
+
+/* ---------- Grid Layout ---------- */
+.grid-container {
+	display: grid;
+	grid-template-columns: 40% 60%;
+	grid-template-areas:
+		"header header"
+		"main1  main2"
+		"ref ref";
+	gap: 16px;
+	max-width: 1000px;
+	margin: 20px auto;
+	padding: 0 16px;
+}
+
+.grid-container > div {
+	background-color: #ffffff;
+	border: 3px solid #0f0e0d;
+	border-radius: 6px;
+	padding: 24px;
+	box-shadow: 5px 5px 0 rgba(15, 14, 13, 0.25);
+}
+
+/* ---------- Checkered ribbon divider (signature detail) ---------- */
+.checker-strip {
+	height: 14px;
+	margin: 18px 0;
+	background-image:
+		linear-gradient(45deg, #0f0e0d 25%, transparent 25%, transparent 75%, #0f0e0d 75%),
+		linear-gradient(45deg, #0f0e0d 25%, transparent 25%, transparent 75%, #0f0e0d 75%);
+	background-size: 14px 14px;
+	background-position: 0 0, 7px 7px;
+	background-color: #f2b134;
+	border-radius: 3px;
+}
+
+/* ---------- Images ---------- */
+.img-frame {
+	overflow: hidden;
+	border-radius: 4px;
+	border: 3px solid #0f0e0d;
+	transition: box-shadow 0.25s ease;
+}
+
+.img-frame:hover {
+	box-shadow: 4px 4px 0 #f2b134;
+}
+
+.hero-img,
+.content-img,
+.step-photos img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	cursor: pointer;
+	transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* hover */
+.img-frame:hover .hero-img,
+.img-frame:hover .content-img,
+.img-frame:hover img {
+	transform: scale(1.1);
+}
+
+.hero-img {
+	max-height: 500px;
+	width: 100%;
+	object-fit: cover;
+}
+
+.content-img {
+	object-fit: cover;
+}
+
+.hero-frame {
+	margin-top: 0;
+}
+
+.img-frame {
+	margin-bottom: 16px;
+}
+
+.step-photos {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.step-photos .img-frame {
+	margin-bottom: 0;
+	aspect-ratio: 1 / 1;
+}
+
+.step-photos img {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+/* ---------- Areas ---------- */
+#header {
+	grid-area: header;
+	background-color: #d64541;
+	color: #ffffff;
+	text-align: center;
+	padding: 30px 20px;
+	border: 3px solid #0f0e0d;
+}
+
+#header h1 {
+	font-size: 2.1em;
+	color: #ffffff;
+	text-shadow: 3px 3px 0 #0f0e0d;
+}
+
+#main1 {
+	grid-area: main1;
+}
+
+#main2 {
+	grid-area: main2;
+}
+
+/* ---------- Section tab labels ---------- */
+#main1 h2,
+#main2 h2 {
+	display: inline-block;
+	background-color: #f2b134;
+	color: #0f0e0d;
+	padding: 4px 16px;
+	border: 3px solid #0f0e0d;
+	border-radius: 4px;
+	transform: rotate(-2deg);
+	margin-bottom: 18px;
+}
+
+/* ---------- Ingredient list ---------- */
+#main1 ul {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 20px;
+}
+
+#main1 ul li {
+	position: relative;
+	padding-left: 22px;
+	margin-bottom: 8px;
+}
+
+#main1 ul li::before {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: 7px;
+	width: 9px;
+	height: 9px;
+	background-color: #d64541;
+	transform: rotate(45deg);
+}
+
+/* ---------- Instruction step numbers ---------- */
+#main2 ol {
+	list-style: none;
+	padding-left: 0;
+	counter-reset: step;
+}
+
+#main2 ol li {
+	counter-increment: step;
+	position: relative;
+	padding-left: 42px;
+	margin-bottom: 14px;
+}
+
+#main2 ol li::before {
+	content: counter(step);
+	position: absolute;
+	left: 0;
+	top: -2px;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background-color: #0f0e0d;
+	color: #f2b134;
+	font-family: 'Anton', sans-serif;
+	font-size: 0.95em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#ref {
+	grid-area: ref;
+	text-align: center;
+	background-color: #3a2b22;
+	color: #f5e9da;
+	padding: 14px;
+	border: 3px solid #0f0e0d;
+	border-radius: 6px;
+}
+
+#ref a {
+	color: #f2a634;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+#ref a:hover {
+	text-decoration: underline;
+}
+
+/* ---------- Tablet: stack main1/main2 ---------- */
+@media only screen and (max-width: 768px) {
+	.grid-container {
+		grid-template-columns: 100%;
+		grid-template-areas:
+			"header"
+			"main1"
+			"main2"
+			"ref";
+	}
+
+	#header h1 {
+		font-size: 1.6em;
+	}
+}
+
+/* ---------- Mobile ---------- */
+@media only screen and (max-width: 480px) {
+	.grid-container {
+		gap: 12px;
+		padding: 0 10px;
+	}
+
+	#header {
+		padding: 20px 12px;
+	}
+
+	.grid-container > div {
+		padding: 16px;
+	}
+
+	.step-photos {
+		gap: 6px;
+	}
+
+	.hero-img {
+		max-height: 180px;
+	}
+}

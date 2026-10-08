@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap');
+ 
+* {
+	box-sizing: border-box;
+}
+ 
+body {
+	margin: 0;
+	padding: 24px;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(160deg, #fdf1f0 0%, #f7dbe2 55%, #f3cdd8 100%);
+	font-family: 'Nunito Sans', sans-serif;
+	color: #3a2530;
+}
+ 
+form {
+	background: #fffaf9;
+	border-radius: 20px;
+	padding: 44px 40px 36px;
+	width: 100%;
+	max-width: 440px;
+	box-shadow: 0 20px 50px rgba(179, 73, 95, 0.18);
+}
+ 
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+ 
+legend {
+	display: block;
+	width: 100%;
+	font-family: 'Cormorant Garamond', serif;
+	font-weight: 600;
+	font-size: 2.4rem;
+	text-align: center;
+	color: #3a2530;
+	margin: 0 0 6px;
+}
+ 
+legend::after {
+	content: "";
+	display: block;
+	width: 46px;
+	height: 2px;
+	background: #c7a06a;
+	margin: 10px auto 26px;
+}
+ 
+.hint {
+	display: block;
+	text-align: center;
+	font-size: 0.82rem;
+	color: #8c6b75;
+	margin-bottom: 10px;
+}
+ 
+#errormsg {
+	display: block;
+	min-height: 1em;
+	text-align: center;
+	color: #b3324f;
+	font-weight: 700;
+	font-size: 0.88rem;
+	margin-bottom: 6px;
+}
+ 
+/* ---------- Fields ---------- */
+ 
+.field {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+ 
+.field label,
+.field-label {
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: #8c6b75;
+	letter-spacing: 0.3px;
+	margin-bottom: 7px;
+}
+ 
+.field-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+}
+ 
+.field-row .field {
+	flex: 1;
+	min-width: 150px;
+}
+ 
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1.5px solid #ecc7d1;
+	border-radius: 10px;
+	background: #fdf6f5;
+	color: #3a2530;
+	font-size: 1rem;
+	font-family: 'Nunito Sans', sans-serif;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+	outline: none;
+	background: #fff;
+	border-color: #b3495f;
+	box-shadow: 0 0 0 3px rgba(179, 73, 95, 0.12);
+}
+ 
+/* ---------- Gender radios ---------- */
+ 
+.radio-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+ 
+.radio-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 7px 16px;
+	border: 1.5px solid #ecc7d1;
+	border-radius: 999px;
+	font-size: 0.88rem;
+	color: #3a2530;
+	cursor: pointer;
+	transition: border-color 0.2s ease, color 0.2s ease;
+}
+ 
+.radio-pill:has(input:checked) {
+	border-color: #b3495f;
+	color: #b3495f;
+	font-weight: 700;
+}
+ 
+input[type="radio"] {
+	accent-color: #b3495f;
+	cursor: pointer;
+}
+ 
+/* ---------- Buttons ---------- */
+ 
+.form-actions {
+	display: flex;
+	gap: 12px;
+	margin-top: 10px;
+}
+ 
+input[type="submit"],
+input[type="reset"] {
+	flex: 1;
+	padding: 12px;
+	border-radius: 10px;
+	font-size: 0.95rem;
+	font-weight: 700;
+	font-family: 'Nunito Sans', sans-serif;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.1s ease;
+}
+ 
+input[type="submit"] {
+	border: none;
+	background: #b3495f;
+	color: #fff;
+}
+ 
+input[type="submit"]:hover {
+	background: #96354a;
+}
+ 
+input[type="reset"] {
+	border: 1.5px solid #ecc7d1;
+	background: transparent;
+	color: #8c6b75;
+}
+ 
+input[type="reset"]:hover {
+	border-color: #b3495f;
+	color: #b3495f;
+}
+ 
+input[type="submit"]:active,
+input[type="reset"]:active {
+	transform: translateY(1px);
+}
+ 
+/* ---------- Switch link ---------- */
+ 
+.switch-link {
+	text-align: center;
+	font-size: 0.85rem;
+	color: #8c6b75;
+	margin: 22px 0 0;
+}
+ 
+.switch-link a {
+	color: #b3495f;
+	font-weight: 700;
+	text-decoration: none;
+}
+ 
+.switch-link a:hover {
+	text-decoration: underline;
+}

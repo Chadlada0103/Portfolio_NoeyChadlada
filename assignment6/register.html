@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Register</title>
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="register.js"></script>
+	</head>
+	<body>
+		<form name="myRegister" id="myRegister" action="login.html">
+			<fieldset>
+				<legend>Register</legend>
+				<span class="hint">* required</span>
+				<span id="errormsg"></span>
+
+				<div class="field-row">
+					<div class="field">
+						<label for="firstname">First name*</label>
+						<input type="text" name="firstname" id="firstname" required>
+					</div>
+					<div class="field">
+						<label for="lastname">Last name</label>
+						<input type="text" name="lastname" id="lastname">
+					</div>
+				</div>
+
+				<div class="field">
+					<span class="field-label">Gender*</span>
+					<div class="radio-group">
+						<label class="radio-pill"><input type="radio" name="gender" value="male">Male</label>
+						<label class="radio-pill"><input type="radio" name="gender" value="female">Female</label>
+						<label class="radio-pill"><input type="radio" name="gender" value="other">Other</label>
+					</div>
+				</div>
+
+				<div class="field">
+					<label for="bday">Birthday*</label>
+					<input type="date" name="bday" id="bday" value="">
+				</div>
+
+				<div class="field">
+					<label for="email">Email address*</label>
+					<input type="email" name="email" id="email">
+				</div>
+
+				<div class="field">
+					<label for="reg-username">Username*</label>
+					<input type="text" name="username" id="reg-username">
+				</div>
+
+				<div class="field-row">
+					<div class="field">
+						<label for="reg-password">Password*</label>
+						<input type="password" name="password" id="reg-password" required>
+					</div>
+					<div class="field">
+						<label for="reg-password2">Retype password*</label>
+						<input type="password" name="password" id="reg-password2" required>
+					</div>
+				</div>
+
+				<div class="form-actions">
+					<input type="submit" value="Register" id="registerBtn">
+					<input type="reset" value="Reset" id="resetBtn">
+				</div>
+			</fieldset>
+		</form>
+	</body>
+</html>

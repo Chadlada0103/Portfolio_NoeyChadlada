@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Blogger</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+	
+	<!-- สำคัญ -->
+	<script src='main.js' defer></script> 
+
+</head>
+<body>
+	<main class="thread">
+
+		<header class="thread-header">
+			<h1 id="top"></h1>
+			<p class="thread-sub">A quiet place for one topic and two replies.</p>
+		</header>
+
+		<ol class="posts">
+			<li class="post post--topic">
+				<span class="post-index">01</span>
+				<div class="post-body" id="topic" data-empty="Nobody has started the topic yet."></div>
+			</li>
+			<li class="post">
+				<span class="post-index">02</span>
+				<div class="post-body" id="reply1" data-empty="Waiting for the first reply."></div>
+			</li>
+			<li class="post">
+				<span class="post-index">03</span>
+				<div class="post-body" id="reply2" data-empty="Waiting for a second reply."></div>
+			</li>
+		</ol>
+
+		<section class="composer">
+			<label class="composer-label" for="message">Your message</label>
+			<textarea name="message" id="message" placeholder="Write the topic, then your replies, one post at a time…"></textarea>
+			<div class="composer-actions">
+				<button type="button" id="clear-btn" class="btn btn-ghost">Clear</button>
+				<button type="button" id="post-btn" class="btn btn-primary">Post</button>
+			</div>
+		</section>
+
+	</main>
+</body>
+</html>
